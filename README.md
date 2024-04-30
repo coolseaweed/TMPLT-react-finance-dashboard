@@ -12,10 +12,12 @@ This repository is clone project of **react finance dashboard app** based on
 npm run start
 ```
 
+
 # Deploy
 ```bash
 npm run deploy
 ```
+
 
 # Tech stacks
 ### FrontEnd
@@ -24,3 +26,5 @@ npm run deploy
 - **Nivo**
 
 
+# Data modeling
+![images](./images/data_modeling.png)
