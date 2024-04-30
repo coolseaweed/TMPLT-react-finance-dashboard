@@ -1,28 +1,27 @@
+import BoxHeader from "@/components/BoxHeader";
 import DashboardBox from "@/components/DashboardBox";
 import { useGetKpisQuery } from "@/state/api";
+import { useTheme } from "@mui/material";
 import { useMemo } from "react";
 import {
-  AreaChart,
-  Area,
+  ResponsiveContainer,
   CartesianGrid,
-  Legend,
+  AreaChart,
+  BarChart,
+  Bar,
+  LineChart,
   XAxis,
   YAxis,
+  Legend,
   Line,
-  LineChart,
   Tooltip,
-  Bar,
-  BarChart,
-  ResponsiveContainer,
+  Area,
 } from "recharts";
-import BoxHeader from "@/components/BoxHeader";
-import { useTheme } from "@mui/material";
 
 const Row1 = () => {
   const { palette } = useTheme();
   const { data } = useGetKpisQuery();
 
-  // Prepare data for Charts
   const revenue = useMemo(() => {
     return (
       data &&
@@ -63,10 +62,9 @@ const Row1 = () => {
 
   return (
     <>
-      {/* GRID A */}
-      <DashboardBox gridArea={"a"}>
+      <DashboardBox gridArea="a">
         <BoxHeader
-          title="Revenue vs Expenses"
+          title="Revenue and Expenses"
           subtitle="top line represents revenue, bottom line represents expenses"
           sideText="+4%"
         />
@@ -82,7 +80,6 @@ const Row1 = () => {
               bottom: 60,
             }}
           >
-            {/* Gradation of AreaChart */}
             <defs>
               <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
                 <stop
@@ -109,7 +106,6 @@ const Row1 = () => {
                 />
               </linearGradient>
             </defs>
-
             <XAxis
               dataKey="name"
               tickLine={false}
@@ -141,9 +137,7 @@ const Row1 = () => {
           </AreaChart>
         </ResponsiveContainer>
       </DashboardBox>
-
-      {/* GRID B */}
-      <DashboardBox gridArea={"b"}>
+      <DashboardBox gridArea="b">
         <BoxHeader
           title="Profit and Revenue"
           subtitle="top line represents revenue, bottom line represents expenses"
@@ -202,9 +196,7 @@ const Row1 = () => {
           </LineChart>
         </ResponsiveContainer>
       </DashboardBox>
-
-      {/* GRID C */}
-      <DashboardBox gridArea={"c"}>
+      <DashboardBox gridArea="c">
         <BoxHeader
           title="Revenue Month by Month"
           subtitle="graph representing the revenue month by month"
